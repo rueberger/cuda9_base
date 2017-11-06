@@ -71,7 +71,7 @@ RUN mkdir /bazel && \
     wget --quiet https://raw.githubusercontent.com/bazelbuild/bazel/master/LICENSE && \
     chmod +x bazel-*.sh && \
     ./bazel-$BAZEL_VERSION-installer-linux-x86_64.sh && \
-ip    rm -f /bazel/bazel-$BAZEL_VERSION-installer-linux-x86_64.sh
+    rm -f /bazel/bazel-$BAZEL_VERSION-installer-linux-x86_64.sh
 
 # Download and build TensorFlow.
 WORKDIR /
