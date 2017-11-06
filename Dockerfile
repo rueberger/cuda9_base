@@ -80,6 +80,9 @@ RUN git clone https://github.com/tensorflow/tensorflow.git && \
     git checkout ${TF_BRANCH}
 WORKDIR /tensorflow
 
+# bazel expects python to live at /usr/bin/python
+RUN ln -s /usr/bin/python3.5 /usr/bin/python
+
 # Configure the build for our CUDA configuration.
 ENV CI_BUILD_PYTHON=python3 \
     LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:${LD_LIBRARY_PATH} \
