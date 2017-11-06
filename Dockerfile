@@ -31,10 +31,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip --no-cache-dir install --upgrade \
+RUN pip3 --no-cache-dir install --upgrade \
         pip setuptools
 
-RUN pip --no-cache-dir install \
+RUN pip3 --no-cache-dir install \
         ipykernel \
         jupyter \
         matplotlib \
@@ -71,7 +71,7 @@ RUN mkdir /bazel && \
     wget --quiet https://raw.githubusercontent.com/bazelbuild/bazel/master/LICENSE && \
     chmod +x bazel-*.sh && \
     ./bazel-$BAZEL_VERSION-installer-linux-x86_64.sh && \
-    rm -f /bazel/bazel-$BAZEL_VERSION-installer-linux-x86_64.sh
+ip    rm -f /bazel/bazel-$BAZEL_VERSION-installer-linux-x86_64.sh
 
 # Download and build TensorFlow.
 WORKDIR /
@@ -102,7 +102,7 @@ RUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/lib
                 tensorflow/tools/pip_package:build_pip_package && \
     mkdir /pip_pkg && \
     bazel-bin/tensorflow/tools/pip_package/build_pip_package /pip_pkg && \
-    pip --no-cache-dir install --upgrade /pip_pkg/tensorflow-*.whl && \
+    pip3 --no-cache-dir install --upgrade /pip_pkg/tensorflow-*.whl && \
     rm -rf /pip_pkg && \
     rm -rf /root/.cache
 # Clean up pip wheel and Bazel cache when done.
