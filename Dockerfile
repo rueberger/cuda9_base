@@ -81,7 +81,7 @@ RUN git clone https://github.com/tensorflow/tensorflow.git && \
 WORKDIR /tensorflow
 
 # Configure the build for our CUDA configuration.
-ENV CI_BUILD_PYTHON=python \
+ENV CI_BUILD_PYTHON=python3 \
     LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:${LD_LIBRARY_PATH} \
     CUDNN_INSTALL_PATH=/usr/lib/x86_64-linux-gnu \
     PYTHON_BIN_PATH=/usr/bin/python3 \
