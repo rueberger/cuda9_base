@@ -111,7 +111,7 @@ RUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/lib
 # Clean up pip wheel and Bazel cache when done.
 
 
-RUN apt-get update && apt-get install openssh-client
+RUN apt-get update && apt-get install -y openssh-client
 
 WORKDIR /root
 
