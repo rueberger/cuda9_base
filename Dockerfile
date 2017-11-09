@@ -110,6 +110,9 @@ RUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/lib
     rm -rf /root/.cache
 # Clean up pip wheel and Bazel cache when done.
 
+
+RUN apt-get update && apt-get install openssh-client
+
 WORKDIR /root
 
 # TensorBoard
